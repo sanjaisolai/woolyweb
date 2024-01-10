@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/navBar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/forms.css')}}">
+
+    <title>Customer Company</title>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img class="navbar-logo" src="{{url_for('static',filename='images/logo2.png')}}" alt="WoolyWeb">
+            <div class="navbar-menu">
+                <a href="/"><div>Home</div></a>
+                <a href="/education"><div>Education</div></a>
+                <a href="https://www.bis.gov.in/"><div>Grading</div></a>
+                <a href="https://woolboard.nic.in/rwp_latest.htm"><div>Pricing</div></a>
+            </div>
+            <div class="login-container">
+                <form class="flogin" action="/type_of_login_login" method="post">
+                    <button type="submit" class="flogin">LogIn</button>
+                  </form>
+            </div>
+            <div class="menu"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <form action="/submit_customer" method="post">
+              <h1>Customer Company</h1>
+              <div class="input-container">
+                  <div class="heading-container">
+                    <label for="">Company Name:</label>
+                    <label for="">Address:</label>
+                    <label for="">City:</label>
+                    <label for="">State:</label>
+                    <label for="">GSTIN:</label>
+                    <label for="">Password:</label>
+                  </div>
+                  <div class="field-container">
+                    <input type="text" name="name" placeholder="Eg: FiberFlow">
+                    <input type="text" name="address" placeholder="Eg: 1134, 10th Block, Mugappair East">
+                    <input type="text" name="city" placeholder="Eg: Chennai">
+                    <input type="text" name="state" placeholder="Eg: Tamil Nadu">
+                    <input type="text" name="gstin" placeholder="GSTIN">
+                    <input type="text" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo-container">
+                <img class="footer-logo" src="{{url_for('static',filename='images/logo2.png')}}" alt="">
+                <p>WoolyWeb<br>Connects Wool Across The Nation</p>
+            </div>
+            <div class="links-container">
+                <div class="container1">
+                    <p class="heading" onclick="flinks()" >Links</p>
+                    <div class="links" id="active">
+                        <a href="https://woolboard.nic.in/download/01112021-30112021.pdf">WoolBoard</a>
+                        <a href="https://www.exportgenius.in/india-importers-of-wool">WoolBoard</a>
+                        <a href="https://www.thecompanycheck.com/corporate-list/segment=raw-wool/1">WoolBoard</a>
+                        <a href="https://globalfarmernetwork.org/farmers/farmer-directory/">WoolBoard</a>
+                    </div>
+                </div>
+                <div class="container2">
+                    <p class="heading" onclick="fothers()">Others</p>
+                    <div class="others" id="active" >
+                        <a href="https://coefpo.org/publications/fpo-list-english.pdf">Publications</a>
+                        <a href="">Publications</a>
+                        <a href="">Publications</a>
+                        <a href="">Publications</a>
+                    </div>
+                </div>
+                <div class="container3">
+                    <p class="heading" onclick="fcontacts()" >Contact Us</p>
+                    <div class="contact" id="active">
+                        <a href="">hello SVCE</a>
+                        <a href="">2022@svce.ac.in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="line"></div>
+    </footer>
+
+    <script src="{{url_for('static',filename='navBar.js')}}"></script>
+</body>
+</html>

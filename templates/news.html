@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/navBar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/news.css')}}">
+    {% if url=='/1' %}
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    {%endif%}
+
+    
+    <title>News</title>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img class="navbar-logo" src="{{url_for('static',filename='images/logo2.png')}}" alt="WoolyWeb">
+            <div class="navbar-menu">
+                <a href="/"><div>Home</div></a>
+                <a href="/education"><div>Education</div></a>
+                <a href="https://www.bis.gov.in/"><div>Grading</div></a>
+                <a href="https://woolboard.nic.in/rwp_latest.htm"><div>Pricing</div></a>
+            </div>
+            <div class="login-container">
+              <form action="/type_of_login_login" method="post">
+                <button type='submit' class="login">LogIn</button></form>
+                <form action="/type_of_login" method="post">
+                <button class="register" type="submit">Register</button></form>
+            </div>
+            <div class="menu"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+      <div class="home-banner">
+        <form action="/type_of_login" method="post">
+          <div class="banner-content">
+              <h4 class="welcome">WELCOME TO</h4>
+              <h1 class="co-name" id="co-name">
+                {%if url=='/1'%}    
+                <div class="w" id="w"></div>
+                <div class="o1" id="o1"></div>
+                <div class="o2" id="o2"></div>
+                <div class="l" id="l"></div>
+                <div class="y" id="y" ></div>
+                <div class="w2" id="w2"></div>
+                <div class="e" id="e"></div>
+                <div class="b" id="b"></div>
+                {%else%}
+                WOOLY WEB
+                {%endif%}
+              </h1>
+              <button class="register">REGISTER</button>
+          </div>
+          </form>
+      </div>
+
+        <div class="container">
+          {% if url != '/re2' and entries!='/education' %} {% for entry in
+            entries[:15] %}
+          <div>
+            <h3>
+              <a
+                href="{{ entry.link }}"
+                >{{ entry.title }}
+              </a>
+            </h3>
+            <p>{{ entry.description }}</p>
+            <br />
+          </div>
+          {% endfor %} {%elif entries=='/education'%}
+            <div>
+                <h3>
+                  <a
+                    href="https://www.wraindia.com/educational_courses.htm"
+                    >Wool Research Association
+                  </a>
+                </h3>
+                <p>Wool Research Association</p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="http://www.cswri.res.in/"
+                    >ICAR - Central Sheep
+                  </a>
+                </h3>
+                <p>ICAR - Central Sheep</p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://woolboard.nic.in/"
+                    >Central Wool Development Board
+                  </a>
+                </h3>
+                <p>Central Wool Development Board</p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://www.woolmarklearningcentre.com/"
+                    >Woolmark Learning Center
+                  </a>
+                </h3>
+                <p>Woolmark Learning Center</p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://www.ibef.org/exports/wool-industry-india"
+                    >Indian Brand Equity Foundation - Wool Industry Export in
+                    India
+                  </a>
+                </h3>
+                <p>
+                  Indian Brand Equity Foundation - Wool Industry Export in India
+                </p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://samarth-textiles.gov.in/"
+                    >SpearHeading Skill development across India
+                  </a>
+                </h3>
+                <p>
+                  The "SpearHeading Skill Development across India" scheme aims to
+                  boost job creation and skill development in textiles and related
+                  sectors. It encourages industry participation, skill enhancement
+                  in traditional sectors, and livelihood generation across
+                  society. The scheme targets training 10 lakh individuals over 3
+                  years (2017-20) with a budget of 1300 crore. Participation is
+                  open to Textiles Industry/Associations registered under Central
+                  or State Government/Chambers of Commerce.
+                </p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://pib.gov.in/PressReleseDetail.aspx?PRID=1606086"
+                    >Encouragement to Research and Innovation in Textile Sector
+                  </a>
+                </h3>
+                <p>
+                  The scheme encourages research and innovation in the textile
+                  sector to boost ease of doing business and support "Make in
+                  India" with zero defects in manufacturing. It aims to enhance
+                  investment, productivity, quality, and employment, promoting
+                  exports and reducing imports in the textile industry.
+                  Additionally, it indirectly stimulates investment in benchmarked
+                  textile machinery manufacturing
+                </p>
+                <br />
+              </div>
+    
+              {%else%}
+              <div>
+                <h3>
+                  <a
+                    href="https://www.woolboard.nic.in/planshemes_faq.htm"
+                    >Central Wool Development Board
+                  </a>
+                </h3>
+                <p>WOOL DEVELOPMENT BOARD</p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://www.indiafilings.com/learn/integrated-wool-development-programme/"
+                    >Integrated Wool Development Programme
+                  </a>
+                </h3>
+                <p>
+                  The primary goal of the scheme is to stop the decline of the
+                  wool production in India and uplift the manufacturing process by
+                  offering various components in this scheme and to enable a
+                  steady growth in the production of wool among all rural
+                  wool-producing sectors.
+                </p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://www.meity.gov.in/esdm/pli"
+                    >Production Linked Incentive Scheme (PLI)
+                  </a>
+                </h3>
+                <p>
+                  offers a production linked incentive to boost domestic
+                  manufacturing and attract large investments in mobile phone
+                  manufacturing and specified electronic components, including
+                  Assembly, Testing, Marking and Packaging (ATMP) units.
+                </p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://www.india.gov.in/spotlight/pm-mega-integrated-textile-region-and-apparel-pm-mitra"
+                    >PM MITRA scheme
+                  </a>
+                </h3>
+                <p>
+                  The scheme will develop integrated large scale and modern
+                  industrial infrastructure facility for total value-chain of the
+                  textile industry for example, spinning, weaving, processing,
+                  garmenting, textile manufacturing, processing & printing
+                  machinery industry.
+                </p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://pib.gov.in/PressReleaseIframePage.aspx?PRID=1945172"
+                    >Scheme for Integrated Textile Park (SITP)
+                  </a>
+                </h3>
+                <p>
+                  The Government's SITP initiative develops cutting-edge textile
+                  parks, with 54 such parks sanctioned. It has drawn an investment
+                  of Rs. 14,243.69 crore and generated employment for 1,05,709
+                  individuals, fostering economic growth.
+                </p>
+                <br />
+              </div>
+              <div>
+                <h3>
+                  <a
+                    href="https://www.indiafilings.com/learn/ipds-scheme/"
+                    >The Integrated Processing Development Scheme (IPDS)
+                  </a>
+                </h3>
+                <p>
+                  The Integrated Processing Development Scheme (IPDS) addresses
+                  textile processing industry challenges, including water scarcity
+                  and environmental pollution. It focuses on developing parks with
+                  shared facilities like effluent treatment plants and water
+                  supply systems, benefiting small and medium enterprises.
+                </p>
+                <br />
+              </div>
+              {% endif %}
+              <form action="{{url}}" method="post" enctype="multipart/form-data">
+              <div class="next"><button type="submit" >NEXT</button></form></div></form>
+            </div>
+            
+    </main>
+
+    <footer>
+      <div class="container">
+          <div class="logo-container">
+              <img class="footer-logo" src="{{url_for('static',filename='images/logo2.png')}}" alt="">
+              <p>WoolyWeb<br>Connects Wool Across The Nation</p>
+          </div>
+          <div class="links-container">
+              <div class="container1">
+                  <p class="heading" onclick="flinks()" >Links</p>
+                  <div class="links" id="active">
+                      <a href="https://woolboard.nic.in/download/01112021-30112021.pdf">WoolBoard</a>
+                      <a href="https://www.exportgenius.in/india-importers-of-wool">WoolBoard</a>
+                      <a href="https://www.thecompanycheck.com/corporate-list/segment=raw-wool/1">WoolBoard</a>
+                      <a href="https://globalfarmernetwork.org/farmers/farmer-directory/">WoolBoard</a>
+                  </div>
+              </div>
+              <div class="container2">
+                  <p class="heading" onclick="fothers()">Others</p>
+                  <div class="others" id="active" >
+                      <a href="https://coefpo.org/publications/fpo-list-english.pdf">Publications</a>
+                      <a href="">Publications</a>
+                      <a href="">Publications</a>
+                      <a href="">Publications</a>
+                  </div>
+              </div>
+              <div class="container3">
+                  <p class="heading" onclick="fcontacts()" >Contact Us</p>
+                  <div class="contact" id="active">
+                      <a href="">hello SVCE</a>
+                      <a href="">2022@svce.ac.in</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+          <div class="line"></div>
+  </footer>
+    {%if url== '/1'%}
+<py-script src="{{url_for('static',filename='anim.py')}}"></py-script>
+{%endif%}
+    <script src="{{url_for('static',filename='navBar.js')}}"></script>
+</body>
+</html>

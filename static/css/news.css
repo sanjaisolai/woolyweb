@@ -1,0 +1,115 @@
+/* Main css */
+
+main {
+    color: #352F44;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+
+main .container {
+    margin: 0 auto;
+    width: 60vw;
+}
+
+.news-heading {
+    display: flex;
+    justify-content: center;
+    color: #c02425;
+}
+
+main h3 a {
+    font-weight: 700;
+    color: #c02425;
+    font-size: 1.1em;
+}
+
+main h3 a:hover {
+    color: #352F44;
+}
+
+main p {
+    margin: 10px 0;
+    line-height: 30px;
+}
+
+.home-banner {
+    background: url("../images/background.webp") center;
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(70%);
+    position: relative;
+    color: #f9f9f9;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.home-banner h1, h4, button {
+    margin: 0;
+    filter: brightness(100%);
+}
+
+.banner-content {
+    position: absolute;
+    left: 10%;
+    bottom: 30%;
+}
+
+.home-banner h1 {
+    font-size: 3rem;
+    margin: 0 0 20px 0;
+    letter-spacing: 3px;
+}
+
+.home-banner h4 {
+    font-size: .7rem;
+    letter-spacing: 3px;
+}
+
+.home-banner .register {
+    border-radius: 8px;
+    background: #24202f;
+    border: solid 0.1px #F5F5DC;
+    letter-spacing: 1.5px;
+}
+
+.home-banner .register:hover {
+    color: #F5F5DC;
+    background-color:rgb(149, 144, 144);
+}
+main .next{
+    text-align:center;
+    margin-bottom:10px;
+
+}
+/*.Register:hover{
+    background-color:rgb(149, 144, 144);
+    
+}*/
+
+.co-name div{
+
+    
+    display:inline-block;
+    
+
+}
+
+
+
+@media (max-width: 450px) {
+    main .container {
+        width: 80vw;
+    }
+    main {
+        margin-top: 75px;
+    }
+    .home-banner h1{
+        font-size:2rem;
+    }
+
+
+        
+    
+}

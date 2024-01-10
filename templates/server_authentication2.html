@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Data from Flask</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/general2.css')}}">
+</head>
+<body>
+    <div id="data-container">
+        <form action="/prices" method="POST">
+            <input type="text" name="min-price" placeholder="Minimum Price" id="">
+            <input type="text" name="max-price" placeholder="Maximum Price" id="">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to fetch data from the Flask endpoint
+        async function fetchData() {
+            try {
+                const response = await fetch('/get_data');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                displayData(data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Function to display the data on the page
+        function displayData(data) {
+            const container = document.getElementById('data-container');
+            container.innerHTML += '<h2>Farmers Data</h2>';
+            data.forEach((item, index) => {
+                const farmerDiv = document.createElement('div');
+                farmerDiv.className = 'farmer';
+                farmerDiv.innerHTML = `
+                    <p class="farmer-id heading">Farmer ID: 
+                        <span id="farmer-id">${item.fid}</span>
+                        <button class="verify-button">Verify</button>
+                    </p>
+                    <div class="info-container">
+                        <div class="farmer-name-container">
+                            <p class="heading">Farmer Name: <span id="farmer-name">${item.name}</span></p>
+                        </div>
+                        <div class="product-info">
+                            <p class="heading"> No of Sheeps: <span id="amount-ofsheeps">${item.No_of_sheeps}</span></p>
+                            <p class="heading">Type of Sheep: <span id="sheep-type">${item.Type_of_sheep}</span></p>
+                        </div>
+                        <div class="address-container">
+                            <p class="address heading">Address: </p>
+                            <p id="address">${item.address}</p>
+                            <p class="city heading">City: </p>
+                            <p id="city">${item.city}, ${item.state}</p>
+                        </div>
+                    </div>
+                `;
+                const verifyButton = farmerDiv.querySelector('.verify-button');
+                verifyButton.addEventListener('click', () => {
+                    // Record response here or perform any desired action
+                    sendVerificationRequest(item.fid);
+                    // You can replace this with your logic
+                });
+
+                container.appendChild(farmerDiv);
+            });
+        }
+        async function sendVerificationRequest(fid) {
+            try {
+                const response = await fetch('/verify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ fid: fid }), // Send the fid to the backend
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const result = await response.json();
+                console.log('Verification response:', result);
+
+                // You can handle the response from the backend here
+                // You can replace this with your logic
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        window.addEventListener('load', fetchData);
+    </script>
+</body>
+</html>

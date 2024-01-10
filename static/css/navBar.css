@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #EEEEEE;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navigation bar css */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw 0 5vw;
+    background: linear-gradient(to right, #c02425 0%, #f0cb35 100%);
+}
+
+.navbar-menu {
+    display: flex;
+    font-weight: 700;
+    font-size: 1.2rem;
+    gap: 5vw;
+}
+
+.navbar-logo {
+    width: 120px;
+    margin: -20px -35px -20px -35px;
+}
+
+a {
+    text-decoration: none;
+    color: #F5F5DC;
+}
+
+a:hover {
+    color: #352F44;
+}
+
+.login-container {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 11px 16px;
+    border-radius: 40px;
+    border: 0.8px solid #352F44;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    background: #352F44;
+    color: #F5F5DC;
+    font-size:1rem;
+    
+}
+
+button:hover {
+    background: none;
+    color: #352F44;
+}
+
+header .menu {
+    display: none;
+}
+
+@media (max-width: 896px) {
+    .navbar-menu {
+        gap: 3vw;
+        font-size: 1rem;
+    }
+
+    .login-container button {
+        font-size: 13px;
+        padding: 5px 12px;
+    }
+}
+
+@media (max-width: 450px) {
+    header .container {
+        padding: 2% 15% 2% 10%;
+    }
+
+    .navbar-logo {
+        width: 100px;
+    }
+
+    header .menu {
+        display: inline;
+        position: absolute;
+        right: 7%;
+        color: #352F44;
+        font-size: 20px;
+    }
+
+    .navbar-menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 80px;
+        flex-direction: column;
+        gap: .3em;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(to right, #c02425 0%, #f0cb35 100%);
+        padding: .5em 0 .5em 0;
+        font-size: 1.2em;
+    } 
+
+    .active {
+        display: flex;
+    }
+}
+
+/* Main css */
+
+main {
+    margin-top: 80px;
+    min-height: 95vh;
+}
+
+/* Footer css */
+
+footer {
+    background: linear-gradient(to right, #c02425 0%, #f0cb35 100%);
+    width: 100%;
+    margin-top: auto;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 5%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #F5F5DC;
+}
+
+.links-container {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.links-container div {
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.links-container div> div {
+    font-weight: 400;
+    display: grid;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.links-container div> p {
+    color: #201c29;
+    font-weight: 700;
+}
+
+.footer-logo {
+    width: 170px;
+    margin: -20px -35px;
+}
+
+footer .heading{
+    cursor:pointer;
+}
+
+
+@media (max-width: 450px) {
+    .links-container {
+        overflow: hidden;
+    }
+}
+
+
+@media (max-width: 680px) {
+    .links-container {
+        flex-direction: column;
+        justify-content: start;
+        gap: 20px;
+        padding: 20px 0;
+        height: 100%;
+    }
+
+    .links-container > div {
+        gap: 10px;
+    }
+
+    .links-container > div > p {
+        margin: 0;
+    }
+
+    /*.links-container > div > div {
+        display: none;
+    }*/
+    #active {
+        display:none;
+    }
+}

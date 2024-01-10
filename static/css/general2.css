@@ -1,0 +1,75 @@
+/* Reset default margin and center content */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Heading style */
+.heading {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Styling for the container holding all farmer data */
+#data-container {
+    width: 70%;
+    background-color: #FFDDCC;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 30px;
+}
+
+/* Styling for each farmer data container */
+.farmer {
+    background: #00c1cb;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Add padding for spacing inside the farmer container */
+    display: flex;
+    flex-direction: column; /* Arrange data vertically within each farmer container */
+}
+
+/* Styling for the farmer information container */
+.info-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Styling for farmer ID */
+.farmer-id {
+    font-size: 22px;
+}
+
+/* Styling for the address container */
+.address-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 0 40px;
+}
+
+/* Styling for spans inside address container */
+.address-container span {
+    font-weight: 500;
+    color: #333;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    height: 30px;
+}
+
+input, button {
+    border-radius: 5px;
+}

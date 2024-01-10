@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/stylesMarket.css')}}">
+    <title>WoolyWeb</title>
+</head>
+<body>
+  <form action="/logout" method="post">
+    <input type="submit" value="logout">
+  </form>
+    <main>
+      <section class="product-grid">
+      </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+
+
+// Function to fetch data from the Flask endpoint
+async function fetchData() {
+    try {
+        const response = await fetch('/get_data_market');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        displayData(data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Function to display the data on the page
+function displayData(data) {
+    const container = document.querySelector('.product-grid');
+    data.forEach((item, index) => {
+        const productHTML = `
+        <div class="product-preview">
+          <form class="fadd-to-cart" method='post' action='/checkout'>
+          <div class="product-image-row">
+            <img class="product-image" src="${item.link}" alt="image">
+          </div>
+          
+          <div class="product-description">
+            <p class="product-name">${item.description}</p>
+            <p class="product-price">$${parseFloat(item.price).toFixed(2)}</p>
+           
+            <button class="add-to-cart" id="add-to-cart" type='submit'>Buy</button>
+            </form>
+            
+          </div>
+        </div>
+        `;
+        
+        container.innerHTML += productHTML;});
+      
+        var forms = document.querySelectorAll('.fadd-to-cart');
+
+
+forms.forEach(function(form) {
+    form.addEventListener('submit', function(event) {
+  
+  
+  event.preventDefault();//to prevent from submitting
+  document.innerhtml='hello';
+  
+  var onclickFunction = function() {
+    localStorage.clear();
+  localStorage.setItem("productName",event.target.querySelector(".product-name").innerHTML);//i used event target to refer to the specific item that was clicked
+  localStorage.setItem("productPrice", event.target.querySelector(".product-price").innerHTML);
+  localStorage.setItem("productImage",event.target.querySelector(".product-image-row").querySelector(".product-image").src);
+
+  };
+
+  
+  onclickFunction();
+
+
+  
+  event.target.submit();
+});
+    });
+
+}
+
+// Fetch data when the page loads
+window.addEventListener('load', fetchData);
+
+
+
+    </script>
+  
+</body>
+</html>

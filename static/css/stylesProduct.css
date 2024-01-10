@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#container {
+    position: relative;
+    height: 80vh;
+    margin: 10vh 0 0 0;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    row-gap: 40%;
+    width: 50vw;
+}
+
+button {
+    position: absolute;
+    padding: 10px 20px;
+    top: 35vh;
+    left: 50%;
+}
+
+.min-max-prices {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    top: 23%;
+    right: 0;
+}
